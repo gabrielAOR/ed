@@ -1,5 +1,5 @@
 import heapq
-
+// lista real
 realDistances = {
     'E1': {'E2': 10},
     'E2': {'E1': 10, 'E3': 8.5, 'E9': 10, 'E10': 3.5},
@@ -16,7 +16,7 @@ realDistances = {
     'E13': {'E14': 5.1},
     'E14': {'E13': 5.1},
 }
-
+// lista heuristica
 Heuristicdistances = {
     'E1': {'E1': 0, 'E2': 10, 'E3': 18.5, 'E4': 24.8, 'E5': 36.4, 'E6': 38.8, 'E7': 35.8, 'E8': 25.4, 'E9': 17.6, 'E10': 9.1, 'E11': 16.7, 'E12': 27.3, 'E13': 27.6, 'E14': 29.8},
     'E2': {'E1': 10, 'E2': 0, 'E3': 8.5, 'E4': 14.8, 'E5': 26.6, 'E6': 29.1, 'E7': 26.1, 'E8': 17.3, 'E9': 10, 'E10': 3.5, 'E11': 15.5, 'E12': 20.9, 'E13': 19.1, 'E14': 21.8},
@@ -33,11 +33,12 @@ Heuristicdistances = {
     'E13': {'E1': 27.6, 'E2': 21.8, 'E3': 18.7, 'E4': 15.3, 'E5': 17.9, 'E6': 18.2, 'E7': 15.6, 'E8': 27.6, 'E9': 26.6, 'E10': 21.2, 'E11': 5.1, 'E13': 0,},
     'E14': {'E1': 29.8, 'E2': 21.8, 'E3': 16.6, 'E4': 15.4, 'E5': 17.9, 'E6': 18.2, 'E8': 27.6, 'E9': 26.6, 'E10': 21.2, 'E11': 5.1, 'E13': 5.1,  'E14': 0,},
 }
-
+// funçao que retorna heuristica
 def heuristic(node, goal):
     return Heuristicdistances[node][goal]
 
 def astar(graph, start, end):
+    // inicializaçao da lista de prioridade, path e a distancia ao no inicial
     open_list = [(0, start)]
     came_from = {}
     g_score = {node: float('inf') for node in graph}
